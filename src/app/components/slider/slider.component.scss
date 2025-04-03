@@ -1,0 +1,49 @@
+
+@import '../../../variables.scss';
+:host{
+    display: block;
+    overflow: hidden !important;
+}
+.slider-track{
+    width: 50vw;
+    height: 220px;
+    overflow: hidden;
+    margin: 0 auto;
+    // background-color: tomato;
+
+    div{
+        padding: 10px;
+        opacity: 0;
+        position: absolute;
+        height: 120px;
+        width: 120px;
+        animation: slide 9s linear infinite;
+        animation-delay: calc((9s / var(--quantity) * (var(--position) )));
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+@include frost;
+    }
+
+    @keyframes slide {
+        0% {
+            opacity: .2;
+            left: 100%;
+
+        }
+
+        50%{
+            opacity: 1;
+        }
+        100% {
+            opacity: .2;
+            left: calc(200px * -1);
+
+        }
+
+    }
+}
+
